@@ -17,10 +17,10 @@ jobs:
       HAS_GMAIL: ${{ secrets.GMAIL_ADDRESS != '' && secrets.GMAIL_APP_PASSWORD != '' }}
     steps:
       - name: Checkout main
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: "3.11"
 
@@ -66,7 +66,7 @@ jobs:
       # when debug/ wasn't created, so this is a no-op on a normal successful run.
       - name: Upload debug HTML (only if a source returned 0 apps)
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: debug-html
           path: debug/
