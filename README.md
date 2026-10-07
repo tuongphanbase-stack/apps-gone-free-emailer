@@ -3,8 +3,8 @@
 Emails you a digest of iOS apps that have gone free today, automatically,
 via GitHub's free scheduled-workflow runners.
 
-Modeled on [tech-price-mailer](https://github.com/tuongphantrue/tech-price-mailer) and
-[currency-rate-emailer](https://github.com/tuongphantrue/currency-rate-emailer) -
+Modeled on [tech-price-mailer](https://github.com/tuongphanbase-stack/tech-price-mailer) and
+[currency-rate-emailer](https://github.com/tuongphanbase-stack/currency-rate-emailer) -
 same generate/send two-phase shape, same Gmail-SMTP delivery, same
 dedup-via-state-branch trick.
 
@@ -312,7 +312,7 @@ for exactly this kind of external hotlinking - it's what every app
 review site and App Store link preview on the web already does. Left
 alone, that's already reliable.
 
-This project's sibling, [9gag-meme-emailer](https://github.com/tuongphantrue/9gag-meme-emailer),
+This project's sibling, [9gag-meme-emailer](https://github.com/tuongphanbase-stack/9gag-meme-emailer),
 downloads its images and republishes them to a dedicated `meme-assets`
 branch, served back out via `raw.githubusercontent.com`, because *its*
 source images aren't something you can reliably hotlink long-term. That
