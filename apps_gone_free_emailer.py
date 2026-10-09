@@ -170,7 +170,7 @@ SCRIPT_VERSION = "2026-08-02.12 (ALWAYS_SEND=true in workflow)"
 
 COUNTRY = os.environ.get("COUNTRY", "us").strip().lower()
 STATE_FILE = os.environ.get("STATE_FILE", "state/notified.json")
-COOLDOWN_DAYS = int(os.environ.get("COOLDOWN_DAYS", "21"))
+COOLDOWN_DAYS = int(os.environ.get("COOLDOWN_DAYS") or "21")
 STATE_RETENTION_DAYS = COOLDOWN_DAYS * 3  # how long entries stick around before being pruned entirely
 EMAIL_DIR = "email"
 
@@ -658,13 +658,13 @@ def enrich_and_verify(apps, country=COUNTRY):
 # of having both rather than two attempts at the same thing.
 
 CHART_URL_TEMPLATE = "https://rss.applemarketingtools.com/api/v2/{country}/apps/top-paid/{limit}/apps.json"
-CHART_LIMIT = int(os.environ.get("CHART_LIMIT", "100"))
+CHART_LIMIT = int(os.environ.get("CHART_LIMIT") or "100")
 CHART_FALLBACK_LIMIT = 100  # the endpoint informally 500s above ~100 as of 2026; see fetch_top_paid_ids()
-CHART_FETCH_RETRIES = int(os.environ.get("CHART_FETCH_RETRIES", "3"))  # retries per limit on transient network errors
-CHART_FETCH_RETRY_DELAY = int(os.environ.get("CHART_FETCH_RETRY_DELAY", "5"))  # seconds between retries
+CHART_FETCH_RETRIES = int(os.environ.get("CHART_FETCH_RETRIES") or "3")  # retries per limit on transient network errors
+CHART_FETCH_RETRY_DELAY = int(os.environ.get("CHART_FETCH_RETRY_DELAY") or "5")  # seconds between retries
 CHART_STATE_FILE = os.environ.get("CHART_STATE_FILE", "state/chart_candidates.json")
-CHART_MAX_TRACK_AGE_DAYS = int(os.environ.get("CHART_MAX_TRACK_AGE_DAYS", "21"))
-CHART_MAX_TRACKED_APPS = int(os.environ.get("CHART_MAX_TRACKED_APPS", "2000"))
+CHART_MAX_TRACK_AGE_DAYS = int(os.environ.get("CHART_MAX_TRACK_AGE_DAYS") or "21")
+CHART_MAX_TRACKED_APPS = int(os.environ.get("CHART_MAX_TRACKED_APPS") or "2000")
 CHART_MAX_CONSECUTIVE_MISSES = 3
 
 
